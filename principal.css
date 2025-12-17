@@ -1,0 +1,158 @@
+@charset "UTF-8";
+ html { scroll-behavior: smooth;
+	} 
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	color: #272727;
+  font-family: "Switzer";
+  background: #f3f3ee;
+}
+a { 
+	text-decoration: none;
+	color: #272727;
+	}
+	
+#masthead{
+	padding: 65px 0;
+}
+.site-title {
+	font-family: "Zodiak";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 100;
+  line-height: 90%;
+  letter-spacing: -1px;
+  max-width: 120px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+ .swiper {
+      width: 100%;
+      height: 200%;
+	 margin-bottom: 10%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #444;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+/* CSS Document */
+/* Media Query para pantallas medianas y grandes */
+/*@media screen and (min-width: 800px) {
+#menu {
+display: flex !important; /* Forzar display flex con important*/
+/*justify-content:space-around;
+padding top: 20px 0;
+padding-bottom: 40px;
+}
+.menu-toggle {
+display: none; /* Botón ☰ se oculta en pantallas grandes */
+/*}
+}
+/* Media Query para pantallas pequeñas */
+/*@media screen and (max-width: 800px) {
+#menu {
+display: none; /* Ocultar en pantallas pequeñas */
+/*flex-direction: column;
+}
+.menu-toggle {
+display: block; /* Botón ☰ se muestra en pantallas pequeñas */
+/*cursor: pointer; /*Para que el puntero del ratón sea como en un enlace*/
+/*}*/
+
+
+
+.proyectos {
+	text-align: center;
+	margin: 50px;
+}
+
+.menu {
+	margin: 30px;
+	text-align: center;
+	font-size: 300%;
+	line-height: 200%;
+	
+}
+
+.menu_item {
+      display: block;
+      color: #111;
+      text-decoration: none;
+      padding-left: 20px;
+      transition: padding-left 900ms ease;
+      position: relative; 
+      z-index: 11;        /* por si quieres sobreponer aún más el texto frente a otros adornos */
+    }
+
+    .menu_item::after {
+      content: "→";
+      opacity: 0;
+      display: inline-block;
+      transition: transform 400ms ease, opacity 200ms ease;
+    }
+
+    .menu_item:hover { padding-left: 10px;
+		               color:white;
+}
+
+    .menu_item:hover::after {
+      opacity: 1;
+      transform: translateX(20px);
+    }
+
+    /* Miniaturas fuente (ocultas en el html) */
+    .story-thumbnail-2 { display: none; }
+
+    .cursor {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 200px;  
+      height: 200px; 
+      border-radius: 50%;
+      pointer-events: none;                         /* no intercepta eventos del mouse */
+      transform: translate(-50%, -50%) scale(0.94); /* centro del círculo = puntero */
+      background-size: cover;
+      background-position: center;
+      opacity: 0;                                   /* oculto por defecto */
+      transition: opacity 180ms ease, transform 180ms ease;
+      z-index: 1;                                   /* *** DETRÁS del menú (z-index:10) *** */
+    }
+
+    .cursor_visible { opacity: 1; }
+    .cursor_grow    { transform: translate(-50%, -50%) scale(1.06); }
+    .cursor_link    { /* opcional: estilos de hover genérico */ }
+
+.contacto {
+	text-align: center;
+	margin-bottom: 10%;
+	line-height: 300%;
+}
+
+.cajas {
+  padding-right: 30px;
+  margin-top: 2%;
+  display: flex;        
+  gap: 20px;            
+  align-items: center; 
+  justify-content: center;
+}
+
+
