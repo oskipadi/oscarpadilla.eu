@@ -390,7 +390,12 @@ a {
     margin-bottom: 80px; /* 🔑 mantiene aire con técnica */
     overflow: hidden;
   }
-
+.swiper-slide {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
   /* -------- TECNICA -------- */
   .tecnica {
     font-size: 0.95rem;
