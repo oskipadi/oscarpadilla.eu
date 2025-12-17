@@ -410,4 +410,52 @@ a {
     display: none;
   }
 }
+/* =====================================
+   MOBILE — OVERRIDE RADICAL
+   ===================================== */
+@media screen and (max-width: 768px) {
+
+  /* RESET LAYOUT DESKTOP */
+  .video_texto,
+  .video_kalewche,
+  .sinopsis {
+    all: unset;
+  }
+
+  /* CONTENEDOR */
+  .video_texto {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  /* VIDEO */
+  .video_kalewche {
+    width: 100%;
+    display: block;
+  }
+
+  .video_kalewche video,
+  .video_kalewche iframe {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* TEXTO */
+  .sinopsis {
+    display: block;
+    width: 100%;
+    padding: 28px 20px 40px;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    text-align: left;
+    text-indent: 1.5em;
+    box-sizing: border-box;
+  }
+
+  #parrafo {
+    margin-top: 1.6em;
+  }
+}
 
