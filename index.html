@@ -1,0 +1,234 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>oscarpadilla.eu</title>
+<link href="principal.css" rel=stylesheet type="text/css">
+	
+	  <meta charset="utf-8" />
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+	
+</head>
+
+<body onload="init()">
+	
+	<script>
+    /* Funcionalistas init para cuadno se carga la página (onload)*/
+    function init() {
+      // cogemos el elemento "cursor" DEL HTML
+      var cursor = document.getElementById('cursor');
+
+      //Definimos un manejador de eventos cuando se mueve el cursor
+      document.addEventListener('mousemove', moverRaton);
+
+      // Definimos los manejadores  de eventos para los enlaces del menú
+      var enlaces = document.querySelectorAll('.menu .menu_item');
+      for (var i = 0; i < enlaces.length; i++) {
+        var e = enlaces[i];
+        e.addEventListener('mouseenter', muestraCursor);
+        e.addEventListener('mouseleave', ocultaCursor);
+      }
+
+      // Oculta el cursor si el ratón sale de la ventana
+      window.addEventListener('mouseleave', ocultaCursor);
+
+
+      // Posiciona el cursor en la coordenada del puntero
+      function moverRaton(e) {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top  = e.clientY + 'px';
+      }
+
+      // Al entrar en el enlace: coge la miniatura hermana y la aplica al cursor
+      function muestraCursor(e) {
+        var enlace = e.currentTarget;
+        var bgImage = obtieneImagen(enlace);
+        if (bgImage) {
+          cursor.style.backgroundImage = bgImage;
+          cursor.classList.add('cursor_visible');
+        }
+        cursor.classList.add('cursor_grow', 'cursor_link');
+      }
+
+
+      // Oculta si abandonamos la ventana o el enlace
+      function ocultaCursor() {
+        cursor.classList.remove('cursor_grow', 'cursor_link', 'cursor_visible');
+        cursor.style.backgroundImage = '';
+      }
+
+      // Devuelve el background-image del div.story-thumbnail-2 hermano del <a>
+      function obtieneImagen(anchor) {
+        var sibling = anchor.nextElementSibling;
+        if (sibling && sibling.classList.contains('story-thumbnail-2')) {
+          var computed = window.getComputedStyle(sibling);
+          var bg = computed.backgroundImage; // valor tipo url("...")
+          if (bg && bg !== 'none') { return bg; }
+        }
+        return '';
+      }
+    }
+  </script>
+	
+	
+  <header id="masthead" class="site-header">
+	  <div class="site-brandign">
+	      <h1 class="site-title">
+		     <a href="index.html">Óscar Padilla</a>
+		  </h1>
+	  </div>
+	  
+	   </header>
+<!--
+	  <div id="barraMenu">
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+<ul id="menu">
+<li><a href="#proyectos">Proyectos Fotográficos</a></li>
+<li><a href="#cine">Cine</a></li>
+<li><a href="#dron_fpv">Piloto Fpv</a></li>
+<li><a href="#sobre_mi">Sobre mi</a></li>
+</ul>
+</div>
+	  <script>
+/*Esta función se activa cuando se pincha el Botón ☰
+* y muestra/oculta el menú completo cuando está
+* usándose el menú hamburguesa*/
+function toggleMenu() {
+const menu = document.getElementById('menu');
+// Verificamos la visibilidad actual del menú
+if (menu.style.display === 'flex') {
+menu.style.display = 'none'; // Ocultar el menú
+} else {
+menu.style.display = 'flex'; // Mostrar el menú
+}
+}
+</script>
+-->
+	 <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="cochedesierto.jpg" width="100%" ></div>
+      <div class="swiper-slide"><img src="familia.jpg" width="100%" ></div>
+      <div class="swiper-slide"><img src="arquitectura.jpg" width="100%" ></div>
+      <div class="swiper-slide"><img src="fotomaraton.jpg" width="100%" ></div>
+      <div class="swiper-slide"><img src="cerro_abajo.jpg" width="100%" ></div>
+      <div class="swiper-slide"><img src="eon.jpg" width="100%" ></div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 3500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+	
+	  
+	  
+	<div class="caja_proyectos">
+	<h4 class="proyectos">proyectos</h4>
+	
+	<div class="menu">
+		  <a class="menu_item" href="./subdirectorios/la_luz_del_kalewche/la_luz_del_kalewche.html">La luz del kalewche</a>
+		  <div class="story-thumbnail-2" style="background-image: url(./subdirectorios/la_luz_del_kalewche/la_luz_del_kalewche_7.jpg)"></div>
+
+		  <a class="menu_item" href="./subdirectorios/el_cuerpo_necesita_un_ratito_de_sol/el_cuerpo_necesita_un_ratito_de_sol.html">El cuerpo necesita un ratito de sol</a>
+		  <div class="story-thumbnail-2" style="background-image: url(./subdirectorios/el_cuerpo_necesita_un_ratito_de_sol/el_cuerpo_necesita_un_ratito_de_sol_15.jpg)"></div>
+	</div>
+  </div>
+	
+	<div class="caja_video">
+	<h4 class="proyectos">diseño sonoro</h4>
+	
+	<div class="menu">
+		  <a class="menu_item" href="https://www.coloraofilms.com/ficcion">El Reparto</a>
+		  <div class="story-thumbnail-2" style="background-image: url(./el_reparto.jpeg)"></div>
+
+	</div>
+  </div>
+	
+	<div class="caja_fpv">
+	<h4 class="proyectos">drones</h4>
+	
+	<div class="menu">
+		  <a class="menu_item" href="./subdirectorios/dron_fpv/dron_fpv.html">oscarpadilla_fpv</a>
+		  <div class="story-thumbnail-2" style="background-image: url(./subdirectorios/dron_fpv/pp_fpv.jpg)"></div>
+
+	</div>
+  </div>
+	
+		<div class="caja_Sobre mi">
+	<h4 class="proyectos">sobre mi</h4>
+	
+	<div class="menu">
+		  <a class="menu_item" href="./subdirectorios/bio/biografia.html">Biografía</a>
+		  <div class="story-thumbnail-2" style="background-image: url(./subdirectorios/bio/bio.jpg)"></div>
+
+	</div>
+  </div>
+	
+	<div class="contacto">
+	   <h4 class="proyectos">contacto</h4>
+	   <h1>Disponible para proyectos y talleres en todo el mundo.</h1>
+		
+		<div class="cajas">
+	<div class="mail">
+	    <p>Email</p>
+	   <a>oscarpadillaarcas@gmail.com</a>
+		</div>
+		
+	<div class="redes">
+		<p>En redes:</p>
+	   <a href="https://www.instagram.com/oscar.padiilla/">@oscar.padilla</a>
+	</div>
+  </div>
+</div>
+	  
+<!--	<div id="cine">	  
+	  <h3>Diseño Sonoro</h3>
+		  <ul>
+			  <li><a>EL REPARTO</a><br/></li>
+		  </ul>
+	      </div>
+	  
+	   <div id="dron_fpv">	  
+	  <h3>Piloto dron fpv</h3>
+		 <ul>
+		   <li><a href="./Subdirectorios/dron_fpv/dron_fpv.html" title="página dron_fpv local">PILOTO DRON FPV</a></li>
+		 </ul>
+	     </div>
+	  
+	  <div id="sobre_mi">  
+	  <h3>Sobre mi</h3>
+		 <ul>
+		   <li><a href="./Subdirectorios/Biografia.html" title="página biografía local">BIOGRAFÍA</a></li>
+		 </ul>
+	     </div>
+-->
+	<!-- Creo el elemento el cursor para hacer los de los círculos -->
+  <div class="cursor" id="cursor"></div>
+	
+</body>
+</html>
