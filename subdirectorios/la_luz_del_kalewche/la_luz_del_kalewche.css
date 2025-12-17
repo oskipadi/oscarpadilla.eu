@@ -285,5 +285,151 @@ a {
       transform: translateX(20px);
     }
 
+/* =====================================================
+   MOBILE — ADAPTACIÓN AGRESIVA (SIN TOCAR DESKTOP)
+   ===================================================== */
+@media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* -------- CABECERA -------- */
+  #masthead {
+    padding: 20px 0;
+  }
+
+  .site-title {
+    font-size: 26px;
+    line-height: 1;
+  }
+
+  .flecha_izq {
+    font-size: 1.8em;
+    padding-left: 0.6em;
+  }
+
+  /* -------- TITULOS -------- */
+  .proyectos {
+    margin: 20px 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  .titulo_proyecto {
+    margin: 20px 16px;
+    padding-left: 0;
+    font-size: clamp(42px, 11vw, 70px);
+    line-height: 1;
+    text-align: left;
+  }
+
+  /* -------- SLOGAN (NO SE TOCA JS) -------- */
+  .slogan {
+    margin: 20px 16px 40px;
+    padding-left: 0;
+    font-size: clamp(22px, 6vw, 34px);
+    line-height: 1.15;
+    text-align: left;
+    opacity: 1;
+    transform: none;
+  }
+
+  /* -------- PORTADA -------- */
+  .foto_portada {
+    width: 100%;
+  }
+
+  /* -------- VIDEO + TEXTO (CLAVE) -------- */
+  .video_texto {
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+  }
+
+  .video_kalewche {
+    width: 100%;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  /* FIX reproducción móvil */
+  .video_kalewche video,
+  .video_kalewche {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .sinopsis {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 32px 20px 40px;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    text-align: left;
+    text-indent: 1.5em;
+    letter-spacing: 0;
+    word-spacing: normal;
+  }
+
+  #parrafo {
+    margin-top: 1.8em;
+  }
+
+  /* -------- CUBO -------- */
+  .headline {
+    padding-top: 60px;
+    padding-bottom: 32px;
+    font-size: 1.5rem;
+  }
+
+  .cubo-marco {
+    width: 100vw;
+    height: 100vw;
+    margin-bottom: 80px; /* 🔑 mantiene aire con técnica */
+    overflow: hidden;
+  }
+
+  /* -------- TECNICA -------- */
+  .tecnica {
+    font-size: 0.95rem;
+    padding: 0 20px;
+    line-height: 1.5;
+  }
+
+  .tecnica ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+
+  /* -------- IPHONE VIDEO -------- */
+  .iphone-wrapper {
+    width: 90vw;
+    opacity: 1;
+    transform: none;
+  }
+
+  .iphone-video {
+    transform: scale(0.76);
+  }
+
+  /* -------- MENU FINAL -------- */
+  .menu {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    margin: 40px 0 60px;
+  }
+
+  .menu_item {
+    padding-left: 0;
+  }
+
+  .menu_item::after {
+    display: none;
+  }
+}
+
 
 
