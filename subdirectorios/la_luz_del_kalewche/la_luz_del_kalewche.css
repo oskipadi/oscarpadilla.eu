@@ -164,9 +164,7 @@ a {
 
 /* Marco que recorta el cubo */
 .cubo-marco {
-  width: 70vw;          /* 50% del viewport */
-  height: 40vw;         /* mitad del cubo */
-  margin: 0 auto;
+  display: relative;
   overflow: hidden;
 }
 
@@ -382,13 +380,6 @@ a {
     padding-top: 60px;
     padding-bottom: 32px;
     font-size: 1.5rem;
-  }
-
-  .cubo-marco {
-	width: 100vw;  
-    height: 100vw;
-    margin-bottom: 80px; /* 🔑 mantiene aire con técnica */
-    overflow: hidden;
   }
 	
   /* -------- TECNICA -------- */
