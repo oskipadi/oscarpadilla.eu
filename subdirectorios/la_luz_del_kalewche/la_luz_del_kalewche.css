@@ -285,106 +285,121 @@ a {
       transform: translateX(20px);
     }
 
-/* =========================
-   ADAPTACIÓN MÓVIL
-   ========================= */
+/* =====================================
+   MOBILE — ADAPTACIÓN AGRESIVA
+   ===================================== */
 @media (max-width: 768px) {
 
   body {
     overflow-x: hidden;
   }
 
-  /* ---------- HEADER ---------- */
+  /* ---------------- HEADER ---------------- */
   #masthead {
-    padding: 25px 0;
+    padding: 20px 0;
   }
 
   .site-title {
-    font-size: 28px;
-    max-width: none;
+    font-size: 26px;
+    line-height: 1;
   }
 
   .flecha_izq {
-    font-size: 2em;
-    padding-left: 0.8em;
+    font-size: 1.8em;
+    padding-left: 0.6em;
   }
 
-  /* ---------- TITULOS ---------- */
+  /* ---------------- TITULOS ---------------- */
   .proyectos {
     margin: 20px 0;
     padding: 0;
     text-align: center;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
   }
 
   .titulo_proyecto {
-    font-size: clamp(42px, 10vw, 72px);
-    margin: 20px;
+    font-size: clamp(42px, 11vw, 70px);
+    margin: 20px 16px;
     padding-left: 0;
-    text-align: center;
+    text-align: left;
+    line-height: 1;
   }
 
   .slogan {
     font-size: clamp(22px, 6vw, 34px);
-    margin: 20px;
+    margin: 20px 16px 40px;
     padding-left: 0;
-    text-align: center;
+    text-align: left;
+    line-height: 1.15;
   }
 
-  /* ---------- PORTADA ---------- */
+  /* ---------------- PORTADA ---------------- */
   .foto_portada {
-    width: 95%;
+    width: 100%;
   }
 
-  /* ---------- VIDEO + TEXTO ---------- */
+  /* ---------------- VIDEO + TEXTO (CLAVE) ---------------- */
   .video_texto {
+    display: flex;
     flex-direction: column;
-    gap: 30px;
+    width: 100%;
+    gap: 0;
   }
 
   .video_kalewche {
     width: 100%;
     padding-left: 0;
+    margin: 0;
   }
 
   .sinopsis {
-    font-size: 1rem;
+    width: 100%;
     max-width: none;
-    padding: 0 20px;
     margin: 0;
-    text-align: justify;
+    padding: 32px 20px 40px;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    text-align: left;
     text-indent: 1.5em;
+    letter-spacing: 0;
+    word-spacing: normal;
   }
 
-  /* ---------- SWIPER ---------- */
+  #parrafo {
+    margin-top: 1.8em;
+  }
+
+  /* ---------------- SWIPER ---------------- */
   .headline {
-    padding-top: 80px;
-    padding-bottom: 40px;
-    font-size: 1.6rem;
+    padding-top: 60px;
+    padding-bottom: 32px;
+    font-size: 1.5rem;
   }
 
   .cubo-marco {
-    width: 90vw;
-    height: 90vw;
+    width: 100vw;
+    height: 100vw;
   }
 
-  /* ---------- TECNICA ---------- */
+  /* ---------------- TECNICA ---------------- */
   .tecnica {
     font-size: 0.95rem;
     padding: 0 20px;
+    line-height: 1.5;
   }
 
-  /* ---------- IPHONE ---------- */
+  /* ---------------- IPHONE ---------------- */
   .iphone-wrapper {
-    width: 85vw;
+    width: 90vw;
     padding-top: 20px;
   }
 
-  /* ---------- MENU FINAL ---------- */
+  /* ---------------- MENU FINAL ---------------- */
   .menu {
     font-size: 1.4rem;
     line-height: 1.6;
-    margin-bottom: 60px;
+    margin: 40px 0 60px;
   }
 
   .menu_item {
