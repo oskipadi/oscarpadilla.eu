@@ -77,68 +77,121 @@ display: block; /* Botón ☰ se muestra en pantallas pequeñas */
 /*}*/
 
 
-
+/* =====================
+   TITULOS
+   ===================== */
 .proyectos {
-	text-align: center;
-	margin: 50px;
+  text-align: center;
+  margin: clamp(20px, 5vw, 50px);
+  font-size: clamp(1.2rem, 3vw, 2rem);
 }
 
+/* =====================
+   MENU
+   ===================== */
 .menu {
-	margin: 30px;
-	text-align: center;
-	font-size: 300%;
-	line-height: 200%;
-	
+  margin: clamp(15px, 4vw, 30px);
+  text-align: center;
+  font-size: clamp(1.1rem, 3vw, 3rem);
+  line-height: 1.6;
 }
 
+/* =====================
+   ITEMS
+   ===================== */
 .menu_item {
-      display: block;
-      color: #111;
-      text-decoration: none;
-      padding-left: 20px;
-      transition: padding-left 900ms ease;
-      position: relative; 
-      z-index: 11;        /* por si quieres sobreponer aún más el texto frente a otros adornos */
-    }
-
-    .menu_item::after {
-      content: "→";
-      opacity: 0;
-      display: inline-block;
-      transition: transform 400ms ease, opacity 200ms ease;
-    }
-
-    .menu_item:hover { padding-left: 10px;
-		               color:white;
+  display: block;
+  color: #111;
+  text-decoration: none;
+  padding: 12px 20px;
+  position: relative;
+  z-index: 11;
+  transition: padding-left 300ms ease, color 300ms ease;
 }
 
-    .menu_item:hover::after {
-      opacity: 1;
-      transform: translateX(20px);
-    }
+/* =====================
+   HOVER SOLO DESKTOP
+   ===================== */
+@media (hover: hover) and (pointer: fine) {
 
-    /* Miniaturas fuente (ocultas en el html) */
-    .story-thumbnail-2 { display: none; }
+  .menu_item::after {
+    content: "→";
+    opacity: 0;
+    display: inline-block;
+    transition: transform 400ms ease, opacity 200ms ease;
+  }
 
-    .cursor {
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 200px;  
-      height: 200px; 
-      border-radius: 50%;
-      pointer-events: none;                         /* no intercepta eventos del mouse */
-      transform: translate(-50%, -50%) scale(0.94); /* centro del círculo = puntero */
-      background-size: cover;
-      background-position: center;
-      opacity: 0;                                   /* oculto por defecto */
-      transition: opacity 180ms ease, transform 180ms ease;
-      z-index: 1;                                   /* *** DETRÁS del menú (z-index:10) *** */
-    }
+  .menu_item:hover {
+    padding-left: 10px;
+    color: white;
+  }
 
-    .cursor_visible { opacity: 1; }
-    .cursor_grow    { transform: translate(-50%, -50%) scale(1.06); }
-    .cursor_link    { /* opcional: estilos de hover genérico */ }
+  .menu_item:hover::after {
+    opacity: 1;
+    transform: translateX(20px);
+  }
+}
+
+/* =====================
+   MINIATURAS
+   ===================== */
+.story-thumbnail-2 {
+  width: 100%;
+  height: clamp(160px, 30vw, 240px);
+  margin: 10px 0 30px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 14px;
+}
+
+/* desktop: invisibles pero presentes */
+@media (hover: hover) {
+  .story-thumbnail-2 {
+    opacity: 0;
+    height: 0;
+    margin: 0;
+    pointer-events: none;
+  }
+}
+
+/* =====================
+   CURSOR CUSTOM (desktop only)
+   ===================== */
+.cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.94);
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 180ms ease, transform 180ms ease;
+  z-index: 1;
+}
+
+@media (hover: none) {
+  .cursor {
+    display: none;
+  }
+}
+
+.cursor_visible { opacity: 1; }
+.cursor_grow { transform: translate(-50%, -50%) scale(1.06); }
+
+/* =====================
+   CAJAS
+   ===================== */
+.caja_proyectos,
+.caja_video,
+.caja_fpv,
+.caja_Sobre\ mi {
+  padding: clamp(10px, 3vw, 30px);
+}
+
 
 .contacto {
 	text-align: center;
