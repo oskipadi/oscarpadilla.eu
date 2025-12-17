@@ -187,11 +187,38 @@ observer.observe(cube);
 	<!-- <img src="expo.jpg">-->
 	<div class="iphone-wrapper">
 	<img id="iphone" src="iphone.png">
-    <video class="iphone-video" autoplay muted loop playsinline preload="auto">
+    <video class="iphone-video" muted loop playsinline preload="auto">
 		<source src="expo.webm" type="video/webm" />
 		<source src="expo.mp4" type="video/mp4" />
 		</video>
 	</div>
+
+	<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const video = document.querySelector(".iphone-video");
+
+  if (!video) return;
+
+  const tryPlay = () => {
+    video.play().catch(() => {
+      // iOS a veces necesita reintento
+    });
+  };
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        tryPlay();
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.3 }
+  );
+
+  observer.observe(video);
+});
+</script>
+
 		<script>
 const iphone = document.querySelector('.iphone-wrapper');
 
