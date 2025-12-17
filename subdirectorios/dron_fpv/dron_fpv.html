@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>dron_fpv</title>
+<link href="dron_fpv.css" rel=stylesheet type="text/css">
+</head>
+
+<body>
+	<header id="masthead" class="site-header">
+	  <div class="site-brandign">
+		  <a class="flecha_izq" href="index.html">←</a>
+	      <h1 class="site-title">
+		     <a href="index.html">Óscar Padilla</a>
+		  </h1>
+		   <div class="right-space"></div>
+	  </div>
+	   </header>
+	
+	<!-- Vídeo que vamos a usar de fondo -->
+<div class="image-container2">
+    <video autoplay loop muted id="video-background">
+	<source src="dunas.webm" type="video/webm" />
+    <source src="dunas.mp4" type="video/mp4" />
+    </video>
+	
+<div class="hover-content2">
+	<img src="TOTAL BLANCO PNG.png">
+  </div>
+</div>
+
+<section class="content-section">
+	<div class="content">
+	<h2>Piloto de Dron Experto en Audiovisual by ESCAC y Aerocámaras</h2>
+	<img id="inspire" src="inspire.jpg">
+    <h4>Formación A1/A3, A2, STS-01 y STS-02 certificada por AESA</h4>
+	<img id="certificado_piloto"src="certificado_piloto.jpg">
+	</div>
+ </section>
+	
+
+<div class="parallax">
+	<video id="parallaxVideo" autoplay loop muted>
+	<source src="guadalest.webm" type="video/webm" />
+    <source src="guadalest.mp4" type="video/mp4" />
+    </video>
+</div> 
+	
+<script>
+// ===== PARALLAX VIDEO 1 (hero) =====
+const heroVideo = document.getElementById("video-background");
+
+// ===== PARALLAX VIDEO 2 (botón) =====
+const video = document.getElementById("parallaxVideo");
+const button = document.getElementById("playBtn");
+
+let isPlaying = false;
+
+// ===== PARALLAX GLOBAL =====
+let lastScrollY = 0;
+let offsetHero = 0;
+let offsetSecond = 0;
+
+window.addEventListener("scroll", () => {
+  lastScrollY = window.scrollY;
+});
+
+function animate() {
+
+  // HERO (muy sutil)
+  const targetHero = lastScrollY * 0.08;
+  offsetHero += (targetHero - offsetHero) * 0.05;
+  heroVideo.style.transform = `translateY(${offsetHero}px)`;
+
+  // SEGUNDO (más visible)
+  const targetSecond = lastScrollY * 0.15;
+  offsetSecond += (targetSecond - offsetSecond) * 0.08;
+  video.style.transform = `translate(-50%, calc(-50% + ${offsetSecond}px))`;
+
+  requestAnimationFrame(animate);
+}
+
+// QUITAR POSTER
+video.addEventListener("play", () => {
+  video.removeAttribute("poster");
+});
+
+animate();
+</script>
+	
+	<section class="content-section">
+  <div class="content2">
+    <h1>Piloto FPV</h1>
+    <div class="texto-foto">
+		<h4>Si quieres impulsar tu proyecto con un video espectacular no dudes en contactarme</h4>
+      <img src="pm_fpv.jpg">
+    </div>
+	  
+	 <div class="video-texto"> 
+	  <div class="video-wrapper">
+        <video autoplay loop muted>
+          <source src="fpv_chile.webm" type="video/webm">
+          <source src="fpv_chile.mp4" type="video/mp4">
+        </video>
+      </div>
+		 <div class="texto-enlace">
+	  <h3>FPV EN CHILE! 🚁</h3>
+		 <a href="https://www.instagram.com/oscar.padiilla/">@oscar.padiilla</a>
+	    </div>
+	</div>
+  </div>
+</section>
+	
+</body>
+</html>
