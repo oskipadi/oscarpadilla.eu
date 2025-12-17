@@ -1,0 +1,97 @@
+@charset "UTF-8";
+html { scroll-behavior: smooth;
+	} 
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	color: #272727;
+  font-family: "Switzer";
+  background: #f3f3ee;
+}
+a { 
+	text-decoration: none;
+	color: #272727;
+	}
+	
+#masthead{
+	padding: 65px 0;
+}
+
+/* 3 columnas: flecha — título — espacio */
+.site-brandign {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+/* Centrado perfecto */
+.site-title {
+ font-family: "Zodiak";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 100;
+  line-height: 90%;
+  letter-spacing: -1px;
+  max-width: 120px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Flecha alineada a la izquierda */
+.flecha_izq {
+  font-size: 3em;
+  justify-self: start;
+  padding-left: 1em;
+  transition: padding-left 900ms ease;
+  display: inline-block;
+}
+
+@keyframes moverFlecha {
+  0%   { transform: translateX(0); }
+  50%  { transform: translateX(-20px); }
+  100% { transform: translateX(0); }
+}
+
+.flecha_izq:hover {
+  animation: moverFlecha 1s ease-in-out infinite;
+}
+
+/* Caja vacía solo para equilibrar el centrado */
+.right-space {
+  justify-self: end;
+}
+.proyectos {
+	text-align:justify;
+	margin: 50px;
+	padding-left: 80px;
+}
+
+.texto-imagen {
+	display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5vw;
+}
+.sinopsis {
+    font-size: 2vw;
+    line-height: 1.5em;
+    letter-spacing: 0.5px;
+    word-spacing: -0.1em;
+
+    max-width: 50em;
+    text-align: justify;
+    text-indent: 2em;
+
+    margin: 1vw auto 2vw 0;  /* se pega a la derecha */
+    padding-left: 10vw;
+
+    flex: 1;  /* ocupa el espacio restante a la derecha */
+}
+.texto-imagen img {
+	width: 30vw;
+  border-radius: 40px;
+  margin-right: 10vw;
+  transform: translateY(-40%);
+}

@@ -1,0 +1,409 @@
+@charset "UTF-8";
+html { scroll-behavior: smooth;
+	} 
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	color: #272727;
+  font-family: "Switzer";
+  background: #f3f3ee;
+}
+a { 
+	text-decoration: none;
+	color: #272727;
+	}
+	
+#masthead{
+	padding: 65px 0;
+}
+
+/* 3 columnas: flecha — título — espacio */
+.site-brandign {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+/* Centrado perfecto */
+.site-title {
+ font-family: "Zodiak";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 100;
+  line-height: 90%;
+  letter-spacing: -1px;
+  max-width: 120px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Flecha alineada a la izquierda */
+.flecha_izq {
+  font-size: 3em;
+  justify-self: start;
+  padding-left: 1em;
+  transition: padding-left 900ms ease;
+  display: inline-block;
+}
+
+@keyframes moverFlecha {
+  0%   { transform: translateX(0); }
+  50%  { transform: translateX(-20px); }
+  100% { transform: translateX(0); }
+}
+
+.flecha_izq:hover {
+  animation: moverFlecha 1s ease-in-out infinite;
+}
+
+/* Caja vacía solo para equilibrar el centrado */
+.right-space {
+  justify-self: end;
+}
+
+.proyectos {
+	text-align:justify;
+	margin: 50px;
+	padding-left: 80px;
+}
+
+.titulo_proyecto {
+	font-size: clamp(60px, 12vw, 150px);
+    font-weight: 300;
+    line-height: 90%;
+    letter-spacing: -2px;
+	margin: 50px;
+	padding-left: 80px;
+  opacity: 0;                     /* invisible al inicio */
+  animation: aparecer 5s ease forwards;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.foto_portada {
+	padding-top: 2vw;
+	display: block;
+    margin: 0 auto;
+	width: 60%;
+}
+
+.sinopsis {
+	padding-top: 5vw;
+	margin: 0 auto;
+	text-align: center;
+	text-align: justify;
+    font-size: 2vw;
+    line-height: 1.5em;
+    letter-spacing: 0.5px;
+    word-spacing: -0.1em;
+
+    max-width: 35em;
+	text-indent: 2em;
+	
+	/*tranición*/
+	opacity: 0; 
+  transform: translateY(20px);
+  transition: opacity .9s ease, transform 3s ease;
+}
+
+.sinopsis.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#parrafo {margin-top: 4em;
+          font: oblique normal lighter 2vw Zodiak;
+	      color: dimgray;
+}
+
+/* ==============================
+   LIBRO / SCROLL
+============================== */
+.libro {
+  width: 100%;
+  scroll-snap-type: y mandatory;
+}
+
+/* ==============================
+   PÁGINAS
+============================== */
+.page {
+  min-height: 100vh;
+  padding: 8vh 6vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+}
+
+/* ==============================
+   IMÁGENES
+============================== */
+.img-full {
+  width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+}
+
+.img-medium {
+  width: 70%;
+}
+
+/* imágenes desplazadas (posición fija) */
+.page img.img-medium-right {
+  width: 50%;
+  transform: translateX(25vw);
+}
+
+.page img.img-medium-left {
+  width: 50%;
+  transform: translateX(-25vw);
+}
+
+/* ==============================
+   DOBLE PÁGINA
+============================== */
+.page.doble {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4vw;
+}
+
+.page.doble img {
+  width: 100%;
+}
+
+/* ==============================
+   TOOLTIP EDITORIAL
+============================== */
+.tooltip {
+  position: relative;
+  display: block;
+  width: 40%;
+  margin: 0 auto;
+  cursor: help;
+}
+
+.texto {
+  width: 100%;
+  display: block;
+}
+
+/* bocadillo */
+.tooltip-content {
+  position: absolute;
+  bottom: 115%;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+
+  max-width: 280px;
+  padding: 12px 14px;
+
+  background: rgba(39, 39, 39, 0.95);
+  color: #f3f3ee;
+
+  font-size: 14px;
+  line-height: 1.45;
+
+  border-radius: 6px;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 10;
+}
+
+/* flecha */
+.tooltip-content::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: rgba(39, 39, 39, 0.95) transparent transparent transparent;
+}
+
+/* hover */
+.tooltip:hover .tooltip-content {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ==============================
+   ANIMACIONES EN SCROLL
+============================== */
+
+/* estado inicial */
+.page img,
+.page .tooltip {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 1.2s ease,
+    transform 1.2s cubic-bezier(.22,.61,.36,1);
+}
+
+/* visible */
+.page.is-visible img,
+.page.is-visible .tooltip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* laterales: solo fade, sin movimiento */
+.page img.img-medium-right,
+.page img.img-medium-left {
+  transition: opacity 1.2s ease;
+}
+
+.page.is-visible img.img-medium-right {
+  transform: translateX(25vw);
+}
+
+.page.is-visible img.img-medium-left {
+  transform: translateX(-25vw);
+}
+
+/* ==============================
+   RESPONSIVE
+============================== */
+@media (max-width: 768px) {
+  .img-medium,
+  .tooltip {
+    width: 90%;
+  }
+
+  .page img.img-medium-right,
+  .page img.img-medium-left {
+    transform: translateX(0);
+  }
+
+  .page.doble {
+    grid-template-columns: 1fr;
+    gap: 6vh;
+  }
+
+  .tooltip-content {
+    max-width: 90vw;
+  }
+}
+
+
+/*propuesta expositiva*/
+
+ .headline {
+  font-family: "zodiak";
+  text-align: center;
+  padding-top: 15vw;
+  padding-bottom:65px;
+  font-weight: lighter;
+}
+#expo {
+	width: 100%;
+}
+
+.photoalicante {
+	font-size: 1.5vw;
+	text-align: center;
+	text-justify: auto;
+}
+
+/*iphone*/
+.iphone-wrapper {
+  position: relative;
+  width: 40vw;
+  max-width: 420px;
+  min-width: 220px;
+  margin: 0 auto;
+  padding-top: 41px;
+
+  /* animación inicial */
+  opacity: 0;
+  transform: translateY(80px) scale(0.95);
+  transition: all 1s cubic-bezier(.22,.61,.36,1);
+}
+
+/* Video detrás */
+.iphone-video {
+  aspect-ratio: 9 / 19.5;
+  position: absolute;
+  top: -5%;
+  left: 8%;
+  width: 85%;
+  height: auto;
+  object-fit: contain;
+  transform: scale(0.76);
+  transform-origin: center;
+  border-radius: 22px;
+  z-index: 1;
+}
+
+/* Marco del iPhone */
+#iphone {
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 600px) {
+  .iphone-wrapper {
+    width: 80vw;
+  }
+}
+.iphone-wrapper.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/*menu kalewche*/
+.proyectos {
+	text-align: center;
+	margin: 50px;
+	padding: 2vw;
+}
+.menu {
+	margin: 30px;
+	text-align: center;
+	font-size: 300%;
+	line-height: 200%;
+	margin-bottom: 10%;
+	
+}
+
+.menu_item {
+      display: block;
+      color: #111;
+      text-decoration: none;
+      padding-left: 20px;
+      transition: padding-left 900ms ease;
+      position: relative; 
+      z-index: 11;        /* por si quieres sobreponer aún más el texto frente a otros adornos */
+    }
+
+    .menu_item::after {
+      content: "→";
+      opacity: 0;
+      display: inline-block;
+      transition: transform 400ms ease, opacity 200ms ease;
+    }
+
+    .menu_item:hover { padding-left: 10px;
+		               color:gray;
+}
+
+    .menu_item:hover::after {
+      opacity: 1;
+      transform: translateX(20px);
+    }
+
