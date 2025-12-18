@@ -5,6 +5,13 @@ html { scroll-behavior: smooth;
 	margin: 0;
 	padding: 0;
 }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
 	color: #272727;
   font-family: "Switzer";
@@ -462,12 +469,20 @@ a {
     padding-left: 0;
   }
 
- .sinopsis {
-    font-size: 4.5vw;
-	padding: 0;
+  .sinopsis {
+    width: 100%;
+    max-width: 100%;
+
+    font-size: clamp(16px, 4.2vw, 20px);
+    line-height: 1.6;
+
+    padding: 0 5vw;
     margin: 0;
+
     text-indent: 0;
+    overflow-wrap: break-word;
   }
+}
 
   /* DESCRIPCIÓN TÉCNICA */
   .tecnica {
