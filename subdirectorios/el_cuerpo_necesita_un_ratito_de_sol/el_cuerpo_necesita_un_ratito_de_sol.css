@@ -407,10 +407,23 @@ a {
       transform: translateX(20px);
     }
 /* ==============================
-   ADAPTACIÓN MÓVIL
-   (no afecta a desktop)
+   ADAPTACIÓN MÓVIL FINAL
+   (desktop intacto)
 ============================== */
 @media (max-width: 768px) {
+
+  /* 🔒 Bloqueo scroll horizontal */
+  html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  /* 🔒 Seguridad universal */
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
 
   /* HEADER */
   #masthead {
@@ -431,17 +444,17 @@ a {
     padding-left: 0.5em;
   }
 
-  /* TEXTOS PRINCIPALES */
+  /* TEXTOS */
   .proyectos {
     margin: 20px;
-    padding-left: 0;
+    padding: 0;
     text-align: center;
   }
 
   .titulo_proyecto {
     font-size: clamp(36px, 9vw, 60px);
     margin: 20px;
-    padding-left: 0;
+    padding: 0;
     text-align: center;
   }
 
@@ -466,16 +479,22 @@ a {
   /* LIBRO */
   .page {
     padding: 6vh 4vw;
+    overflow: hidden;
+  }
+
+  .libro img {
+    width: 100%;
+    object-fit: contain;
   }
 
   .img-medium {
-    width: 90%;
+    width: 100%;
   }
 
   .page img.img-medium-right,
   .page img.img-medium-left {
-    width: 90%;
-    transform: translateX(0);
+    width: 100%;
+    transform: none !important;
   }
 
   .page.doble {
@@ -483,9 +502,9 @@ a {
     gap: 5vh;
   }
 
-  /* TOOLTIP → comportamiento táctil */
+  /* TOOLTIP → táctil */
   .tooltip {
-    width: 90%;
+    width: 100%;
   }
 
   .tooltip-content {
@@ -494,7 +513,8 @@ a {
     opacity: 1;
     margin-top: 12px;
     pointer-events: auto;
-    background: rgba(39, 39, 39, 0.9);
+    max-width: 100%;
+    background: rgba(39, 39, 39, 0.95);
   }
 
   .tooltip-content::after {
@@ -513,9 +533,26 @@ a {
     padding: 0 20px;
   }
 
-  /* IPHONE */
+  /* 📱 VIDEO – modo móvil limpio */
   .iphone-wrapper {
-    width: 85vw;
+    width: 90vw;
+    max-width: none;
+    padding-top: 0;
+  }
+
+  .iphone-video {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    transform: none;
+    border-radius: 16px;
+  }
+
+  /* Ocultar marco iphone en móvil */
+  #iphone {
+    display: none;
   }
 
   /* MENÚ */
