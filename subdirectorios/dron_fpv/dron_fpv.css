@@ -68,7 +68,9 @@ a {
 
 .image-container2 {
   position: relative;
-  height: 100vh;
+  height: 100vh;   /* fallback */
+  height: 100svh;  /* viewport pequeño (iOS) */
+  height: 100dvh;  /* viewport dinámico (Android / iOS nuevo) */
   overflow: hidden;
 }
 
