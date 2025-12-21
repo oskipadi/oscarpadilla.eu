@@ -533,87 +533,20 @@ a {
     padding: 0 20px;
   }
 
-  /* 📱 VIDEO – modo móvil limpio */
-  .iphone-wrapper {
-    width: 90vw;
-    max-width: none;
-    padding-top: 0;
-    opacity: 1 !important;
-    transform: none !important;
-  }
-}
-  }
-
-  .iphone-video {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    aspect-ratio: 9 / 16;
-    transform: none;
-    border-radius: 16px;
-  }
-
-  /* Ocultar marco iphone en móvil */
-  #iphone {
-    display: none;
-  }
-
   /* MENÚ */
   .menu {
     font-size: 180%;
     line-height: 160%;
   }
 /* ==============================
-   VIDEO – COMPORTAMIENTO FINAL
-============================== */
-
-/* Desktop: igual que ahora */
-.iphone-wrapper {
-  position: relative;
-  width: 40vw;
-  max-width: 420px;
-  min-width: 220px;
-  margin: 0 auto;
-  padding-top: 41px;
-}
-
-.iphone-video {
-  aspect-ratio: 9 / 19.5;
-  position: absolute;
-  top: -5%;
-  left: 8%;
-  width: 85%;
-  transform: scale(0.76);
-  border-radius: 22px;
-  z-index: 1;
-}
-
-/* ==============================
-   MÓVIL
+   OCULTAR VIDEO EN MÓVIL
+   (desktop intacto)
 ============================== */
 @media (max-width: 768px) {
 
-  /* Safari necesita el vídeo visible */
+  /* Elimina completamente el bloque del vídeo */
   .iphone-wrapper {
-    width: 90vw;
-    opacity: 1 !important;
-    transform: none !important;
-    padding-top: 0;
+    display: none !important;
   }
-
-  .iphone-video {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 9 / 16;
-    transform: none;
-    border-radius: 16px;
-  }
-
-  /* Ocultar marco en móvil */
-  #iphone {
-    display: none;
-  }
-}
 
 }
