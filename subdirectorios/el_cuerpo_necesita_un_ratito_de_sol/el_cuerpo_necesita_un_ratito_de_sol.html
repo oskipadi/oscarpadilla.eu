@@ -222,7 +222,8 @@ checkReveal();
 	<!-- <img src="expo.jpg">-->
 	<div class="iphone-wrapper">
 	<img id="iphone" src="iphone.png">
-    <video class="iphone-video" autoplay muted loop playsinline>
+    <video class="iphone-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
+
 		<source src="photoalicante.webm" type="video/webm" />
 		<source src="photoalicante.mp4" type="video/mp4" />
 		</video>
@@ -251,29 +252,6 @@ iphoneObserver.observe(iphone);
 	<a class="menu_item" href="https://oscarpadilla.eu/subdirectorios/la_luz_del_kalewche/la_luz_del_kalewche.html">La luz del kalewche</a>
 		
 	</div>
-	<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const video = document.querySelector(".iphone-video");
-
-  if (!video) return;
-
-  const isMobile = window.matchMedia("(max-width: 768px)").matches;
-
-  if (isMobile) {
-    video.removeAttribute("autoplay");
-    video.pause();
-
-    const playVideo = () => {
-      video.play().catch(() => {});
-      window.removeEventListener("touchstart", playVideo);
-      window.removeEventListener("click", playVideo);
-    };
-
-    window.addEventListener("touchstart", playVideo, { once: true });
-    window.addEventListener("click", playVideo, { once: true });
-  }
-});
-</script>
 
 </body>
 </html>
