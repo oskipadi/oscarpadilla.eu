@@ -86,6 +86,11 @@ function animate() {
 video.addEventListener("play", () => {
   video.removeAttribute("poster");
 });
+if (window.innerWidth < 768) {
+  heroVideo.style.transform = "none";
+  video.style.transform = "none";
+  return;
+}
 
 animate();
 </script>
