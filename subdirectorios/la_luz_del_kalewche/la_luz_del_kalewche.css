@@ -292,7 +292,8 @@ a {
     }
 
 /* =====================================================
-   MOBILE — ADAPTACIÓN AGRESIVA (SIN TOCAR DESKTOP)
+   MÓVIL — LIMPIO Y DEFINITIVO
+   NO MODIFICA DESKTOP
    ===================================================== */
 @media (max-width: 768px) {
 
@@ -300,7 +301,7 @@ a {
     overflow-x: hidden;
   }
 
-  /* -------- CABECERA -------- */
+  /* HEADER */
   #masthead {
     padding: 20px 0;
   }
@@ -315,7 +316,7 @@ a {
     padding-left: 0.6em;
   }
 
-  /* -------- TITULOS -------- */
+  /* TITULOS */
   .proyectos {
     margin: 20px 0;
     padding: 0;
@@ -323,47 +324,36 @@ a {
   }
 
   .titulo_proyecto {
-    margin: 20px 16px;
+    font-size: clamp(42px, 12vw, 72px);
+    margin: 24px 16px;
     padding-left: 0;
-    font-size: clamp(42px, 11vw, 70px);
     line-height: 1;
     text-align: left;
   }
 
-  /* -------- SLOGAN (NO SE TOCA JS) -------- */
   .slogan {
+    font-size: clamp(22px, 6vw, 34px);
     margin: 20px 16px 40px;
     padding-left: 0;
-    font-size: clamp(22px, 6vw, 34px);
     line-height: 1.15;
     text-align: left;
     opacity: 1;
     transform: none;
   }
 
-  /* -------- PORTADA -------- */
+  /* PORTADA */
   .foto_portada {
     width: 100%;
   }
 
-  /* -------- VIDEO + TEXTO (CLAVE) -------- */
+  /* VIDEO + TEXTO */
   .video_texto {
     flex-direction: column;
-    width: 100%;
-    gap: 0;
   }
 
   .video_kalewche {
     width: 100%;
     padding-left: 0;
-    margin: 0;
-  }
-
-  /* FIX reproducción móvil */
-  .video_kalewche video,
-  .video_kalewche {
-    max-width: 100%;
-    height: auto;
   }
 
   .sinopsis {
@@ -371,7 +361,7 @@ a {
     max-width: none;
     margin: 0;
     padding: 32px 20px 40px;
-    font-size: 1.05rem;
+    font-size: 1rem;
     line-height: 1.6;
     text-align: left;
     text-indent: 1.5em;
@@ -383,14 +373,18 @@ a {
     margin-top: 1.8em;
   }
 
-  /* -------- CUBO -------- */
+  /* CUBO */
   .headline {
-    padding-top: 60px;
-    padding-bottom: 32px;
+    padding: 60px 0 32px;
     font-size: 1.5rem;
   }
-	
-  /* -------- TECNICA -------- */
+
+  .cubo-marco {
+    width: 90vw;
+    height: 90vw;
+  }
+
+  /* TECNICA */
   .tecnica {
     font-size: 0.95rem;
     padding: 0 20px;
@@ -403,18 +397,12 @@ a {
     margin: 20px 0;
   }
 
-  /* -------- IPHONE VIDEO -------- */
+  /* QUITAR IPHONE EN MÓVIL */
   .iphone-wrapper {
-    width: 90vw;
-    opacity: 1;
-    transform: none;
+    display: none !important;
   }
 
-  .iphone-video {
-    transform: scale(0.76);
-  }
-
-  /* -------- MENU FINAL -------- */
+  /* MENU */
   .menu {
     font-size: 1.4rem;
     line-height: 1.6;
@@ -429,114 +417,7 @@ a {
     display: none;
   }
 }
-/* =====================================
-   ADAPTACIÓN MÓVIL AGRESIVA
-   NO AFECTA DESKTOP
-   ===================================== */
 
-@media (max-width: 768px) {
-
-  /* Reset márgenes laterales */
-  .proyectos,
-  .titulo_proyecto,
-  .slogan {
-    padding-left: 0;
-    margin-left: 0;
-    margin-right: 0;
-    text-align: center;
-  }
-
-  .titulo_proyecto {
-    font-size: 14vw;
-    margin: 12vw 6vw;
-  }
-
-  .slogan {
-    font-size: 7vw;
-    margin: 10vw 6vw;
-    line-height: 1.1;
-  }
-
-  /* VIDEO + TEXTO → COLUMNA */
-  .video_texto {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8vw;
-  }
-
-  .video_kalewche {
-    width: 100%;
-    padding-left: 0;
-  }
-
-  .sinopsis {
-    width: 90%;
-    max-width: 100%;
-
-    font-size: clamp(16px, 4.2vw, 20px);
-    line-height: 1.6;
-
-    padding: 0 5vw;
-    margin: 0;
-
-    text-indent: 0;
-    overflow-wrap: break-word;
-  }
-}
-
-  /* DESCRIPCIÓN TÉCNICA */
-  .tecnica {
-    font-size: 4vw;
-    padding: 0 6vw;
-  }
-
-  .tecnica ul {
-    list-style: none;
-    padding-left: 0;
-    margin: 6vw 0;
-  }
-
-  /* IPHONE VIDEO */
-  .iphone-wrapper {
-    width: 90vw;
-  }
-
-  /* MENÚ FINAL */
-  .menu {
-    font-size: 8vw;
-    margin-bottom: 20vw;
-  }
-}
-/* =====================================================
-   AJUSTES SOLO MÓVIL
-   NO MODIFICA DESKTOP
-   ===================================================== */
-@media (max-width: 768px) {
-
-  /* =========================
-     QUITAR VIDEO IPHONE
-     ========================= */
-  .iphone-wrapper {
-    display: none !important;
-  }
-
-  /* =========================
-     AGRANDAR CUBO + MARCO
-     ========================= */
-
-  /* Marco exterior del cubo */
-  .cubo-marco {
-    width: 90vw;      /* antes 50vw */
-    height: 90vw;     /* antes 30vw */
-  }
-
-  /* Swiper interno */
-  .swiper-container {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-  }
-
-}
 
 
 
